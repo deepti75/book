@@ -1,0 +1,26 @@
+.centerform{
+    background-color: black;
+}
+.logInForm{
+    background-color: pink;
+    padding: 20px 30px;
+    border: 1px solid black;
+}
+button {
+    padding: 5px 30px;
+    margin-right: 20px;
+}
+.books{
+    display: flex;
+}
+.card{
+    padding: 10px;
+    height: 300px;
+    border-radius: 18px;
+}
+.bookBtn{
+    background: pink;
+    border: none;
+    color: black;
+    border-radius: 10px;
+}

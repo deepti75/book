@@ -1,0 +1,92 @@
+<div class="centerform">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="logInForm">
+                    <h2 class="text-center">Add Book </h2>
+                    <form [formGroup]="bookForm" (ngSubmit)="addBookFormHandler(bookForm)">
+                       <div class="row">
+                        <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="title"><strong>Title</strong></label>
+                                    <input type="text" class="form-control" [(ngModel)]="title" formControlName="title">
+                                </div>
+                        </div>
+                       </div>
+                       <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="id"><strong>ID</strong></label>
+                                <input type="text" class="form-control" [(ngModel)]="id" formControlName="id">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="author"><strong>Author</strong></label>
+                                <input type="text" class="form-control" [(ngModel)]="author" formControlName="author">
+                            </div>
+                        </div>
+                       </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="publishDate"><strong>Publish Date</strong></label>
+                                <input type="date" class="form-control" [(ngModel)]="publishDate" formControlName="publishDate">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="price"><strong>Price</strong></label>
+                                <input type="text" class="form-control" [(ngModel)]="price" formControlName="price">
+                            </div>
+                        </div>
+                      </div>
+                       <div class="form-group">
+                        <button class="btn btn-dark" *ngIf="!isUpdate">
+                           Add Book
+                        </button>
+                        <button class="btn btn-dark" *ngIf="isUpdate" (click)="updatedBook()">
+                            update Book
+                         </button>
+                       </div> 
+                    </form>
+                </div>
+            <div class="searchBook mt-5">
+                <div class="form-group">
+                    <div class="col-sm-10 offset-sm-1">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Search Book" [(ngModel)]="searchBook">
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="bookBtn">Search</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center mt-4">
+        <div class="row">
+          <div class="col-sm-12">
+              <div class="books" >
+                      <div class="col-sm-4 mt-4 text-center" *ngFor="let book of bookArray | search : searchBook">
+                          <div class="card">
+                             <h6> <b>{{book.title}}</b></h6>
+                             <hr>
+                             <p> <b>Autor</b> : {{book.author}}</p>
+                             <p><b>Price </b>: {{book.price}}</p>
+                             <p><b>Publish Date</b> : {{book.publishDate}}</p>
+                             <p> <b>Price </b>:{{book.price}}/Ru.</p>
+                             <div class="">
+                              <button class="bookBtn" (click)="deleteHandler(book)">Delete</button>
+                              <button class="bookBtn" (click)="editHandler(book)">Edit</button>
+                             </div>
+                          </div>
+                      </div>
+              </div>
+          </div>
+        </div>
+      </div>
+</div>
+
